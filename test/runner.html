@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Test It Spec</title>
+    <script src="../src/test.it.js"></script>
+</head>
+<body>
+    <script>
+        test.it({
+            "'assert' should exist": function() {
+                test.exists(test.assert);
+            },
+            "truty assert should work": function() {
+                test.assert(1, '1');
+                test.assert('1', 1);
+            },
+            "'equals' should exist": function() {
+                test.exists(test.equals);
+            },
+            "'equals' should be exact": function() {
+                test.equals(1,1);
+                test.equals('hello', 'hello');
+            },
+            "'pass' should exist": function() {
+                test.exists(test.pass);
+            },
+            "'fail' should exist": function() {
+                test.exists(test.fail);
+            },
+            "'exists' should exist": function() {
+                test.exists(test.exists);
+            }
+        }, function(r) {
+            if (window.document && document.body) {
+                document.body.style.backgroundColor = (
+                    r.fail.length ? "#ff9999" : "#99ff99"
+                );
+
+                r.pass.forEach((p) => document.write(`<br>${p}`));
+                r.fail.forEach((f) => document.write(`<br><b>${f}</b>`));
+            }
+        });
+
+        function assert(exp, msg) {
+            try {
+                let val = eval(exp);
+
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+    </script>
+</body>
+</html>

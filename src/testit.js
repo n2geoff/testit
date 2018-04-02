@@ -1,4 +1,4 @@
-/* Test.it v 0.5 | MIT | https://github.com/n2geoff/testit */
+/* Test.it v 0.5.1 | MIT | https://github.com/n2geoff/testit */
 (function(root, factory) {
     // support  browser & commonjs
     if(typeof module === "object" && module.exports) {

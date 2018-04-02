@@ -4,6 +4,19 @@
 
 **Test.it** is a small testing library for people that want to live in code, not tests.  No over engineering here.  Inspired by the simplicity of libraries like [Tape](https://github.com/substack/tape), but the implementation ideas of [TinyTest](https://github.com/joewalnes/jstinytest)
 
+### Features
+
+- Works in the Browser
+- Works with CommonJS (aka NodeJS)
+- Less than 100 lines
+- Single File
+- 2kb footprint (before gzip)
+- Pipe output custom reporter 
+
+**No Bloat Here!**
+
+> Go [get it](https://raw.githubusercontent.com/n2geoff/testit/master/src/testit.min.js)
+
 ## Usage
 
 By default, you can run your tests like
@@ -16,10 +29,11 @@ test.it({
     'my failing test': function() {
         test.fail('just wanted to fail fast');
     }
-});
+}).run();
 ```
+> NOTE: `run()` can be called elsewhere, see [tests/](test/runner.html)
 
-`test.it` will return `true` if the tests pass or `false` otherwise, in addition you should see the following console output
+`test.it` will return `true` if the tests pass or `false` otherwise. Typical console output:
 
 ```
 + my passing test
@@ -33,7 +47,9 @@ A `+` will proceed test lines that pass and a `-` for those that fail, the trace
 
 ### Optional Next
 
-In addition to the default operation, `test.it` provides an optional `next` functional parameter that will return the results as an `object` for you to process *however* you like
+`test.it` `.run()` method provides an optional `next` function parameter that will return the results as an `object` for you to process *however* you like
+
+For Example...
 
 **For Fans of [TinyTest](https://github.com/joewalnes/jstinytest)**
 
@@ -60,23 +76,41 @@ test.it({
 }
 ```
 
-From this you can easily find the number of tests ran `pass.length`, number of failed tests `fail.length` or the total test count by adding the two.  Simple.
+From this object you can easily find the number of tests ran `pass.length`, number of failed tests `fail.length` or the total test count by adding the two.  Simple.
 
 ## Methods
 
-To stay minimal, `test.it` only provides 6 testing methods
+To stay minimal, `test.it` only provides 7 methods, 5 for assertion, 1 to capture tests
+and 1 to run tests
 
-| Method                          | Description                   |
-| ------------------------------- | ----------------------------- |
-| `test.pass()`                   | pass test                     |
-| `test.fail(message)`            | fails test with message       |
-| `test.exists(value)`            | check if value exists         |
-| `test.assert(expected, actual)` | evaluates results using `==`  |
-| `test.equals(expected, actual)` | evaluates results using `===` |
+| Methods                         | Description                             |
+| ------------------------------- | --------------------------------------- |
+| `test.it(tests)`                | captures test object                    |
+| `test.it(tests).run(next)`      | runs tests w/ optional processing       |
+| `test.pass()`                   | pass test                               |
+| `test.fail(message)`            | fails test with message                 |
+| `test.exists(value)`            | check if value exists                   |
+| `test.assert(expected, actual)` | evaluates results using `==`            |
+| `test.equals(expected, actual)` | evaluates results using `===`           |
 
 > NOTE: wish `eval` was not so evil, `assert(expression, message)` would be ideal
 
+## Support
+
+Please open [an issue](https://github.com/n2geoff/testit/issues/new) for support.
+
+## Contributing
+
+Anyone is welcome to contribute, however, if you decide to get involved, please take a moment to realize there many project support files missing, such as
+
+- Linting
+- Minification
+- Typings
+- ect...
+
+Enter at your own peril
+
 ## License
 
-MIT
+The code is available under the [MIT license](LICENSE).
 

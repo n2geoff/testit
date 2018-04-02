@@ -102,11 +102,9 @@ Please open [an issue](https://github.com/n2geoff/testit/issues/new) for support
 
 ## Contributing
 
-Anyone is welcome to contribute, however, if you decide to get involved, please take a moment to realize these are early days, so...
-
-...enter at your own peril!
+Anyone is welcome to contribute, however, if you decide to get involved, please take a moment to review the [guidelines](CONTRIBUTING.md), there minimalistic;)
 
 ## License
 
-The code is available under the [MIT license](LICENSE).
+[MIT](LICENSE).
 

@@ -1,0 +1,31 @@
+{
+  "name": "testit",
+  "version": "0.5.2",
+  "description": "a minimalistic testing library",
+  "main": "src/testit.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.5"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/jshint src/testit.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n2geoff/testit.git"
+  },
+  "keywords": [
+    "test",
+    "testing",
+    "library",
+    "minimalist"
+  ],
+  "author": "Geoff Doty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/n2geoff/testit/issues"
+  },
+  "homepage": "https://github.com/n2geoff/testit#readme"
+}

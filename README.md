@@ -10,12 +10,13 @@
 - Works with CommonJS (aka NodeJS)
 - Less than 100 lines
 - Single File
-- 2kb footprint (before gzip)
-- Pipe output custom reporter 
+- No Dependicies
+- 2kb footprint (*before gzip*)
+- Extend with custom reporters 
 
 **No Bloat Here!**
 
-> Go [get it](https://raw.githubusercontent.com/n2geoff/testit/master/src/testit.min.js)
+- [Download Now Available](https://raw.githubusercontent.com/n2geoff/testit/master/src/testit.min.js)
 
 ## Usage
 
@@ -71,8 +72,8 @@ test.it({
 
 ```json
 {
-    "pass": ['list of passed tests', ...],
-    "fail": ['list of errored tests', ...],
+    "pass": ["list of passed tests", "..."],
+    "fail": ["list of errored tests", "..."],
 }
 ```
 
@@ -101,14 +102,9 @@ Please open [an issue](https://github.com/n2geoff/testit/issues/new) for support
 
 ## Contributing
 
-Anyone is welcome to contribute, however, if you decide to get involved, please take a moment to realize there many project support files missing, such as
+Anyone is welcome to contribute, however, if you decide to get involved, please take a moment to realize these are early days, so...
 
-- Linting
-- Minification
-- Typings
-- ect...
-
-Enter at your own peril
+...enter at your own peril!
 
 ## License
 

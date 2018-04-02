@@ -1,25 +1,26 @@
-/* Test.it v 0.5.1 | MIT | https://github.com/n2geoff/testit */
-(function(root, factory) {
+/* Test.it v 0.5.2 | MIT | https://github.com/n2geoff/testit */
+;(function (root, factory) {
+    "use strict";
     // support  browser & commonjs
-    if(typeof module === "object" && module.exports) {
+    if (typeof module === "object" && module.exports) {
         module.exports = factory(root.test);
     } else {
         root.test = factory(root.test);
     }
-}(this, function() {
-    'use strict';
+}(this, function () {
+    "use strict";
 
     const test = {
-        _tests: {},
-        run: function(next) {
-    
+        "_tests": {},
+        "run": function (next) {
+
             let tests = this._tests;
             // capture results
             let failed = [];
             let passed = [];
     
             // loop through tests
-            Object.keys(tests).forEach(function(name) {
+            Object.keys(tests).forEach(function (name) {
                 let test = tests[name];
     
                 // execute
@@ -38,7 +39,7 @@
             });
     
             // summary
-            if(typeof next === 'function') {
+            if(typeof next === "function") {
                 return next({
                     pass: passed,
                     fail: failed
@@ -50,16 +51,16 @@
                 return failed.length ? false : true;
             }
         },
-        it: function(tests) {
+        "it": function (tests) {
             this._tests = tests;
             return this;
         },
-        assert: function (e, a) { if (e != a) throw Error(`expected ${e} == ${a}`); },
-        equals: function (e, a) { if (e !== a) throw Error(`expected ${e} === ${a}`); },
-        exists: function (v) { if (!v) throw Error(`exists value ${v}`); },
-        pass: function () { return true; },
-        fail: function (m) { throw Error(m); }
-    }
+        "assert": function (e, a) { if (e != a) throw Error(`expected ${e} == ${a}`); },
+        "equals": function (e, a) { if (e !== a) throw Error(`expected ${e} === ${a}`); },
+        "exists": function (v) { if (!v) throw Error(`exists value ${v}`); },
+        "pass": function () { return true; },
+        "fail": function (m) { throw Error(m); }
+    };
 
     return test;
 }));

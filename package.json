@@ -1,15 +1,19 @@
 {
   "name": "testit",
-  "version": "0.5.2",
+  "version": "0.6.1",
   "description": "a minimalistic testing library",
   "main": "src/testit.js",
   "directories": {
     "test": "test"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minify": "^2.1.0",
+    "gulp-strip-comments": "^2.5.2",
     "jshint": "^2.9.5"
   },
   "scripts": {
+    "build": "node_modules/.bin/gulp",
     "test": "node_modules/.bin/jshint src/testit.js"
   },
   "repository": {

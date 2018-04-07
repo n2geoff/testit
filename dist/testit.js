@@ -1,7 +1,6 @@
 /*! Test.it v 0.6.1 | MIT | https://github.com/n2geoff/testit */
 (function (root, factory) {
     "use strict";
-    // support  browser & commonjs
     if (typeof module === "object" && module.exports) {
         module.exports = factory(root.test);
     } else {
@@ -15,15 +14,12 @@
         "run": function (next) {
 
             let tests = this._tests;
-            // capture results
             let failed = [];
             let passed = [];
 
-            // loop through tests
             Object.keys(tests).forEach(function (name) {
                 let test = tests[name];
 
-                // execute
                 try {
                     test();
                     passed.push(`\n+ ${name}`);
@@ -33,7 +29,6 @@
                 }
             });
 
-            // summary
             if(typeof next === "function") {
                 return next({
                     pass: passed,

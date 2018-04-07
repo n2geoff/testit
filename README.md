@@ -2,17 +2,22 @@
 
 > A minimalistic testing library
 
-**Test.it** is a small testing library for people that want to live in code, not tests.  No over engineering here.  Inspired by the simplicity of libraries like [Tape](https://github.com/substack/tape), but the implementation ideas of [TinyTest](https://github.com/joewalnes/jstinytest)
+**Test.it** is a small testing library for people that want to live in code, not in tests.  No over engineering here.  Inspired by the simplicity of libraries like [Tape](https://github.com/substack/tape),but the implementation ideas of things like [Expect](https://github.com/Automattic/expect.js) and [TinyTest](https://github.com/joewalnes/jstinytest)
+
+This is probally not a *cure-all* testing solution, if you want something more robust checkout [Jasmine](), [Tape]() or [Mocha]() -- this is to... 
+
+**Test small things, with small things**
 
 ### Features
 
 - Works in the Browser
 - Works with CommonJS (aka NodeJS)
-- Less than 100 lines
+- Barely over a 100 lines
 - Single File
 - No Dependicies
 - 2kb footprint (*before gzip*)
-- Extend with custom reporters 
+- Extend with custom reporters
+- Has an Expect-like style BDD assertions 
 
 **No Bloat Here!**
 
@@ -25,10 +30,10 @@ By default, you can run your tests like
 ```js
 test.it({
     'my passing test': function() {
-        test.pass();
+        test.expects().to.pass();
     },
     'my failing test': function() {
-        test.fail('just wanted to fail fast');
+        test.expects().to.fail('just wanted to fail fast');
     }
 }).run();
 ```
@@ -46,9 +51,11 @@ test.it({
 
 A `+` will proceed test lines that pass and a `-` for those that fail, the trace back `file:line` is included after the failing test proceeded by `- -`
 
+> NOTE: API still in flux, and may change to closer match TAP
+
 ### Optional Next
 
-`test.it` `.run()` method provides an optional `next` function parameter that will return the results as an `object` for you to process *however* you like
+`test.it` `.run()` method provides an optional `next` function parameter that passes the results as an `object` for you to process *however* you like. such as a custom runner
 
 For Example...
 
@@ -81,20 +88,38 @@ From this object you can easily find the number of tests ran `pass.length`, numb
 
 ## Methods
 
-To stay minimal, `test.it` only provides 7 methods, 5 for assertion, 1 to capture tests
-and 1 to run tests
+To stay minimal, `test.it` only has 3 core functions: 
+- `it` to capture your tests
+- `run` to execute yours tests
+- and `expects` to write your test assertions
 
-| Methods                         | Description                             |
-| ------------------------------- | --------------------------------------- |
-| `test.it(tests)`                | captures test object                    |
-| `test.it(tests).run(next)`      | runs tests w/ optional processing       |
-| `test.pass()`                   | pass test                               |
-| `test.fail(message)`            | fails test with message                 |
-| `test.exists(value)`            | check if value exists                   |
-| `test.assert(expected, actual)` | evaluates results using `==`            |
-| `test.equals(expected, actual)` | evaluates results using `===`           |
+While you can use your own assertion library, the included `expects` provides the following methods for writing your tests:
+
+| Methods                           | Description                             |
+| --------------------------------- | --------------------------------------- |
+| `.expects(tests).to.exist()`      | truthy evalution if value exists        |
+| `.expects().to.pass()`            | pass test                               |
+| `.expects().to.fail(message)`     | fails test with message                 |
+| `.expects(this).to.equal(that)`   | strictly equal evaluation using `===`   |
+| `.expects(this).to.be.like(that)` | loose evaluation using `==`             |
+| `.expects(123).to.be.a('number')` | check typeof value (`.a()` or `.an()`)  |
 
 > NOTE: wish `eval` was not so evil, `assert(expression, message)` would be ideal
+
+if you want to shorten test typing try
+
+    let expect = test.expects;
+
+putting that above your tests will allow you to write like
+
+```js
+test.it({
+    "my test should work": function() {
+        expect().to.pass();
+    }
+});
+
+```
 
 ## Support
 
@@ -106,5 +131,5 @@ Anyone is welcome to contribute, however, if you decide to get involved, please 
 
 ## License
 
-[MIT](LICENSE).
+[MIT](LICENSE)
 

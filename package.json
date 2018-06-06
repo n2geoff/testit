@@ -1,6 +1,6 @@
 {
   "name": "testit",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "a minimalistic testing library",
   "main": "src/testit.js",
   "directories": {
@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "node_modules/.bin/gulp",
-    "test": "node_modules/.bin/jshint src/testit.js"
+    "lint": "node_modules/.bin/jshint src/testit.js",
+    "test": "node test/run.js"
   },
   "repository": {
     "type": "git",

@@ -1,3 +1,5 @@
+var test = test || require("../src/testit");
+
 test.it({
     "'like' should do truthy evaluation via ==": function() {
         test.expects(1).to.be.like('1');
@@ -17,7 +19,7 @@ test.it({
             test.expects().to.pass();
         }
     },
-    "you should be albe to see if something 'exists'": function() {
+    "you should be able to see if something 'exists'": function() {
         test.expects({}).to.exist();
     },
     "should be able to check types": function() {

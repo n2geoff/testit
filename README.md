@@ -39,23 +39,25 @@ test.it({
 ```
 > NOTE: `run()` can be called elsewhere, see [tests/](test/runner.html)
 
-`test.it` will return `true` if the tests pass or `false` otherwise. Typical console output:
+by default, your test results are logged to the console
 
 ```
 + my passing test
 - my failing test
 - - Error: just wanted to fail fast 
     ...error stack...
-# tests 1 pass 1 fail 0
+# tests 2 pass 1 fail 1
 ```
 
-A `+` will proceed test lines that pass and a `-` for those that fail, the trace back `file:line` is included after the failing test proceeded by `- -`
+A `+` will proceed test lines that *pass* and a `-` for those that *fail*, the trace back `file:line` is included after the failing test proceeded by `- -`
+
+You can, however, write your own custom test runner...
 
 > NOTE: API still in flux, and may change to closer match TAP
 
-### Optional Next
+### Custom Test Runners
 
-`test.it` `.run()` method provides an optional `next` function parameter that passes the results as an `object` for you to process *however* you like. such as a custom runner
+`test.it` `.run()` method provides an optional `next` function parameter that passes the results as an `object` for you to process *however* you like.
 
 For Example...
 
@@ -75,7 +77,7 @@ test.it({
 });
 ```
 
-### Sample Results Object
+If using the optional `next` param will return results as JSON
 
 ```json
 {
@@ -85,6 +87,8 @@ test.it({
 ```
 
 From this object you can easily find the number of tests ran `pass.length`, number of failed tests `fail.length` or the total test count by adding the two.  Simple.
+
+A sample test runner is provided for both **HTML** and **NODE** in the `test/` directory; `run.html` and `run.js` respectfully.
 
 ## Methods
 
@@ -120,6 +124,11 @@ test.it({
 });
 
 ```
+
+## TODO
+
+- write `not` expects, ie `expects(this).to.not.equal(this)`
+- provide sample test runner for CI environments
 
 ## Support
 

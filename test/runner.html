@@ -17,6 +17,8 @@
 
             r.pass.forEach((p) => document.write(`<br>${p}`));
             r.fail.forEach((f) => document.write(`<br><b>${f}</b>`));
+
+            document.write(`<p>tests ${r.pass.length + r.fail.length} pass ${r.pass.length} fail ${r.fail.length}`);
         });
     </script>
 </body>

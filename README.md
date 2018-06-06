@@ -37,7 +37,7 @@ test.it({
     }
 }).run();
 ```
-> NOTE: `run()` can be called elsewhere, see [tests/](test/runner.html)
+> NOTE: `run()` can be called elsewhere, see [tests/](test/run.html)
 
 by default, your test results are logged to the console
 
@@ -141,4 +141,3 @@ Anyone is welcome to contribute, however, if you decide to get involved, please 
 ## License
 
 [MIT](LICENSE)
-

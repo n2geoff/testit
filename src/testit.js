@@ -1,4 +1,4 @@
-/*! Test.it v 0.6.1 | MIT | https://github.com/n2geoff/testit */
+/*! Test.it v 0.6.2 | MIT | https://github.com/n2geoff/testit */
 (function (root, factory) {
     "use strict";
     // support  browser & commonjs
@@ -60,39 +60,31 @@
                         "an": (type) => {
 
                             if(['array'].indexOf(type) !== -1) {
-                                if(val.constructor.name.toLowerCase() === 'array') {
-                                    return true;
-                                } else {
+                                if(val.constructor.name.toLowerCase() !== 'array') {
                                     throw new Error(`expected ${typeof val} to be an ${type}`);
                                 }
+
+                                return true;
                             }
 
-                            if(typeof val === type) {
-                                return true;
-                            } else {
+                            if(typeof val !== type) {
                                 throw new Error(`expected ${typeof val} to be an ${type}`);
                             }
                         },
                         "like": (comp) => {
-                            if(val == comp) {
-                                return true;
-                            } else {
+                            if(val != comp) {
                                 throw new Error(`expected ${val} == ${comp}`);
                             }
                         }
                     },
                     "equal": (comp) => {
 
-                        if(val === comp) {
-                            return true;
-                        } else {
+                        if(val !== comp) {
                             throw new Error(`expected ${val} === ${comp}`);
                         }
                     },
                     "exist": () => {
-                        if(val) {
-                            return true;
-                        } else {
+                        if(!val) {
                             throw new Error(`expected ${val} to be truthy`);
                         }
                     },

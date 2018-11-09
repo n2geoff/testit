@@ -1,4 +1,4 @@
-/*! Test.it v 0.6.2 | MIT | https://github.com/n2geoff/testit */
+/*! Test.it v 0.7.0 | MIT | https://github.com/n2geoff/testit */
 (function (root, factory) {
     "use strict";
     if (typeof module === "object" && module.exports) {

@@ -1,4 +1,4 @@
-/*! Test.it v 0.7.0 | MIT | https://github.com/n2geoff/testit */
+/*! Test.it v 0.7.1 | MIT | https://github.com/n2geoff/testit */
 (function (root, factory) {
     "use strict";
     if (typeof module === "object" && module.exports) {
@@ -11,13 +11,13 @@
 
     const test = {
         "_tests": {},
-        "run": function (next) {
+        "run": function run(next) {
 
             let tests = this._tests;
             let failed = [];
             let passed = [];
 
-            Object.keys(tests).forEach(function (name) {
+            Object.keys(tests).forEach((name) => {
                 let test = tests[name];
 
                 try {
@@ -41,11 +41,11 @@
                 return failed.length ? false : true;
             }
         },
-        "it": function (tests) {
+        "it": function it(tests) {
             this._tests = tests;
             return this;
         },
-        "expects": (val) => {
+        "expects": function expects(val) {
             return {
                 "to": {
                     "be": {

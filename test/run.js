@@ -7,7 +7,7 @@ fs.readdir(__dirname, function(err, files) {
     }
 
     var tests = files.filter(function(item) {
-        return item.indexOf("spec.js") !== -1; 
+        return item.indexOf("spec.js") !== -1;
     });
 
     tests.forEach(function(file) {

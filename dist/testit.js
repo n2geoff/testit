@@ -11,7 +11,11 @@
 
     const test = {
         "_tests": {},
-        "run": function run(next) {
+        "run": function run(errors, next) {
+            if(typeof errors !== "boolean") {
+                next = errors;
+                errors = true;
+            }
 
             let tests = this._tests;
             let failed = [];
@@ -24,7 +28,13 @@
                     test();
                     passed.push(`\n+OK ${name}`);
                 } catch (err) {
-                    failed.push(`\n-ERR ${name} \n --- \n ${err.stack} \n ---`);
+                    if (errors) {
+                        console.log('ERRORS: YES');
+                        failed.push(`\n-ERR ${name} \n --- \n ${err.stack} \n ---`);
+                    } else {
+                        console.log('ERRORS: NO');
+                        failed.push(`\n-ERR ${name}`);
+                    }
                 }
             });
 

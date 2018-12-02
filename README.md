@@ -4,7 +4,7 @@
 
 **Test.it** is a small testing library for people that want to live in code, not in tests.  No over engineering here.  Inspired by the simplicity of libraries like [Tape](https://github.com/substack/tape),but the implementation ideas of things like [Expect](https://github.com/Automattic/expect.js) and [TinyTest](https://github.com/joewalnes/jstinytest)
 
-This is probally not a *cure-all* testing solution, if you want something more robust checkout [Jasmine](), [Tape]() or [Mocha]() -- this is to...
+This is probally not a *cure-all* testing solution, if you want something more robust checkout [Jasmine](https://jasmine.github.io/), [Tape](https://github.com/substack/tape) or [Mocha](https://mochajs.org/) -- this is to...
 
 **Test small things, with small things**
 
@@ -12,7 +12,7 @@ This is probally not a *cure-all* testing solution, if you want something more r
 
 - Works in the Browser
 - Works with CommonJS (aka NodeJS)
-- Barely over a 100 lines
+- *Barely* over a 100 lines
 - Single File
 - No Dependicies
 - 2kb footprint (*before gzip*)
@@ -21,7 +21,8 @@ This is probally not a *cure-all* testing solution, if you want something more r
 
 **No Bloat Here!**
 
-- [Download Now Available](https://raw.githubusercontent.com/n2geoff/testit/master/src/testit.min.js)
+- [Download Here](https://raw.githubusercontent.com/n2geoff/testit/master/src/testit.js)
+- [Or Minified  Version Here](https://raw.githubusercontent.com/n2geoff/testit/master/src/testit.min.js)
 
 ## Usage
 
@@ -52,7 +53,7 @@ Error: just wanted to fail fast
 # tests 2 pass 1 fail 1
 ```
 
-A `+OK` will proceed test lines that *pass* and a `-ERR` for those that *fail*, the error stack is included after the failing test wrapped in `---`
+A `+OK` will proceed test lines that *pass* and a `-ERR` for those that *fail*, An error stack is included by default after the failing test wrapped in `---`.  You can suppress outputing the error stack by passing `false` as an argument to `run()`, ie `run(false)`.
 
 You can, however, write your own custom test runner...
 
@@ -88,6 +89,8 @@ If using the optional `next` param will return results as JSON
 ```
 
 From this object you can easily find the number of tests ran `pass.length`, number of failed tests `fail.length` or the total test count by adding the two.  Simple.
+
+> REMEMBER: you can bypass error output too
 
 A sample test runner is provided for both **HTML** and **NODE** in the `test/` directory; `run.html` and `run.js` respectfully.
 

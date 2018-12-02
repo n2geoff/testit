@@ -1,6 +1,6 @@
 # Contributing
 
-So you want to contribute, nice.  **Thank you**.
+So you want to contribute, awesome.  **Thank you**.
 
 Bug reports and code and documentation patches are all welcome. You can help this project also by using the development version and by reporting any bugs you might encounter.
 
@@ -38,7 +38,7 @@ npm test
 
 ## Reporting a bug
 
-Use the [GitHub issue tracker](https://github.com/n2geoff/js-lib/issues) to report any bug you find.
+Use the [GitHub issue tracker](https://github.com/n2geoff/testit/issues/new) to report any bug you find.
 Bugs description should include:
 
 * How to reproduce the bug;
@@ -48,11 +48,9 @@ Would be nice to have some code showing how to reproduce the code, you may use [
 
 ## Request a feature
 
-Use the [GitHub issue tracker](https://github.com/n2geoff/js-lib/issues) to request a new feature.
+Use the [GitHub issue tracker](https://github.com/n2geoff/testit/issues/new) to request a new feature.
 
-Keep in mind, this is a pure javascript library
-
-Feel free to port it to your favorite framework, such as [RiotJS](http://riotjs.com), Angular or VueJs in a new repository.
+Keep in mind, this is a pure javascript library, no dependencies as minimal as possible
 
 ## Commit message
 
@@ -60,11 +58,11 @@ Commit messages should includes GitHub number reference and a imperative easy to
 
 ## Coding style
 
-If it is supported in all major browers without transpiling, then please use those JavaScript language features in your code, with one caveat -- readablity is king. 
+If it is supported in all major browers without transpiling, then please use those JavaScript language features in your code, with one caveat -- readablity is king.
 
 Currently all ES5 and ES6/ES2015 are available.
 
-This project is linted agaist [JSHint](https://github.com/jshint/jshint) and the [`.jshintrc`](.jshintrc) is dead-simple, and all you need to followed. 
+This project is linted agaist [JSHint](https://github.com/jshint/jshint) and the [`.jshintrc`](.jshintrc) is dead-simple, and all you need to followed.
 
 Thank you for reading this.
 

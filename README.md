@@ -4,7 +4,7 @@
 
 **Test.it** is a small testing library for people that want to live in code, not in tests.  No over engineering here.  Inspired by the simplicity of libraries like [Tape](https://github.com/substack/tape),but the implementation ideas of things like [Expect](https://github.com/Automattic/expect.js) and [TinyTest](https://github.com/joewalnes/jstinytest)
 
-This is probally not a *cure-all* testing solution, if you want something more robust checkout [Jasmine](), [Tape]() or [Mocha]() -- this is to... 
+This is probally not a *cure-all* testing solution, if you want something more robust checkout [Jasmine](), [Tape]() or [Mocha]() -- this is to...
 
 **Test small things, with small things**
 
@@ -17,7 +17,7 @@ This is probally not a *cure-all* testing solution, if you want something more r
 - No Dependicies
 - 2kb footprint (*before gzip*)
 - Extend with custom reporters
-- Has an Expect-like style BDD assertions 
+- Has an Expect-like style BDD assertions
 
 **No Bloat Here!**
 
@@ -42,18 +42,19 @@ test.it({
 by default, your test results are logged to the console
 
 ```
-+ my passing test
-- my failing test
-- - Error: just wanted to fail fast 
++OK my passing test
+-ERR my failing test
+---
+Error: just wanted to fail fast
     ...error stack...
+---
+
 # tests 2 pass 1 fail 1
 ```
 
-A `+` will proceed test lines that *pass* and a `-` for those that *fail*, the trace back `file:line` is included after the failing test proceeded by `- -`
+A `+OK` will proceed test lines that *pass* and a `-ERR` for those that *fail*, the error stack is included after the failing test wrapped in `---`
 
 You can, however, write your own custom test runner...
-
-> NOTE: API still in flux, and may change to closer match TAP
 
 ### Custom Test Runners
 
@@ -92,10 +93,10 @@ A sample test runner is provided for both **HTML** and **NODE** in the `test/` d
 
 ## Methods
 
-To stay minimal, `test.it` only has 3 core functions: 
+To stay minimal, `test.it` only has 3 core functions:
 - `it` to capture your tests
 - `run` to execute yours tests
-- and `expects` to write your test assertions
+- and `expects` to write your assertions
 
 While you can use your own assertion library, the included `expects` provides the following methods for writing your tests:
 
@@ -136,7 +137,7 @@ Please open [an issue](https://github.com/n2geoff/testit/issues/new) for support
 
 ## Contributing
 
-Anyone is welcome to contribute, however, if you decide to get involved, please take a moment to review the [guidelines](CONTRIBUTING.md), there minimalistic;)
+Anyone is welcome to contribute, however, if you decide to get involved, please take a moment to review the [guidelines](CONTRIBUTING.md), they're minimalistic;)
 
 ## License
 

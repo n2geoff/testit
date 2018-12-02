@@ -1,6 +1,6 @@
 {
   "name": "testit",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "a minimalistic testing library",
   "main": "src/testit.js",
   "directories": {

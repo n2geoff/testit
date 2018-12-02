@@ -1,4 +1,4 @@
-/*! Test.it v 0.7.1 | MIT | https://github.com/n2geoff/testit */
+/*! Test.it v 0.8.0 | MIT | https://github.com/n2geoff/testit */
 (function (root, factory) {
     "use strict";
     if (typeof module === "object" && module.exports) {
@@ -22,10 +22,9 @@
 
                 try {
                     test();
-                    passed.push(`\n+ ${name}`);
+                    passed.push(`\n+OK ${name}`);
                 } catch (err) {
-                    failed.push(`\n- ${name}`);
-                    console.error(err);
+                    failed.push(`\n-ERR ${name} \n --- \n ${err.stack} \n ---`);
                 }
             });
 

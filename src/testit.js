@@ -13,7 +13,7 @@
     const test = {
         "_tests": {},
         "run": function run(errors, next) {
-            // rewrite to allow a show errors flag (optional)
+            // TODO: rewrite to allow a show errors flag (optional)
             if(typeof errors !== "boolean") {
                 next = errors;
                 errors = true;
@@ -62,9 +62,7 @@
             return {
                 "to": {
                     "be": {
-                        "a": (type) => {
-                            return test.expects(val).to.be.an(type);
-                        },
+                        "a": (type) => { return test.expects(val).to.be.an(type); },
                         "an": (type) => {
 
                             if(['array'].indexOf(type) !== -1) {
@@ -79,9 +77,7 @@
                                 throw new Error(`expected ${typeof val} to be an ${type}`);
                             }
                         },
-                        "ok": () => {
-                            return test.expects(val).to.exist();
-                        },
+                        "ok": () => { return test.expects(val).to.exist(); },
                         "like": (comp) => {
                             if(val != comp) {
                                 throw new Error(`expected ${val} == ${comp}`);
@@ -89,7 +85,6 @@
                         }
                     },
                     "equal": (comp) => {
-
                         if(val !== comp) {
                             throw new Error(`expected ${val} === ${comp}`);
                         }
@@ -100,7 +95,7 @@
                         }
                     },
                     "pass": () => { return true; },
-                    "fail": (msg) => {  throw new Error(msg); }
+                    "fail": (msg) => { throw new Error(msg); }
                 }
             };
         }

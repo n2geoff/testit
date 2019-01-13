@@ -55,7 +55,7 @@ Error: just wanted to fail fast
 
 A `+OK` will proceed test lines that *pass* and a `-ERR` for those that *fail*, An error stack is included by default after the failing test wrapped in `---`.  You can suppress outputing the error stack by passing `false` as an argument to `run()`, ie `run(false)`.
 
-You can, however, write your own custom test runner...
+You can, also, write your own custom test runner...
 
 ### Custom Test Runners
 
@@ -105,7 +105,7 @@ While you can use your own assertion library, the included `expects` provides th
 
 | Methods                           | Description                             |
 | --------------------------------- | --------------------------------------- |
-| `.expects(tests).to.exist()`      | truthy evalution if value exists        |
+| `.expects(tests).to.exist()`      | truthy evalution `.exist` or `.be.ok()` |
 | `.expects().to.pass()`            | pass test                               |
 | `.expects().to.fail(message)`     | fails test with message                 |
 | `.expects(this).to.equal(that)`   | strictly equal evaluation using `===`   |

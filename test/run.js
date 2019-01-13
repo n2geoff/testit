@@ -14,10 +14,10 @@ fs.readdir(__dirname, function(err, files) {
 
         console.log(`: ${file}`);
 
-        var me = fs.readFileSync(path.join(__dirname, file))
+        var me = fs.readFileSync(path.join(__dirname, file));
 
-        // eval maybe evil, but its your code, are you evil?
-        eval(me.toString());
+        // eval maybe evil, but it is YOUR code, are you evil?
+        eval(me.toString()); // jshint ignore:line
 
         test.run();
     });

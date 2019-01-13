@@ -4,6 +4,7 @@ test.it({
     "'like' should do truthy evaluation via ==": function() {
         test.expects(1).to.be.like('1');
         test.expects("1").to.be.like(1);
+        test.expects(1).to.be.ok();
     },
     "'equal' should do === evaluation exist": function() {
         test.expects(1).to.equal(1);
@@ -19,8 +20,10 @@ test.it({
             test.expects().to.pass();
         }
     },
-    "you should be able to see if something 'exists'": function() {
+    "you should be able to test if something 'exists'": function() {
         test.expects({}).to.exist();
+        test.expects({}).to.be.ok();
+        test.expects({}).to.be.a('object');
     },
     "should be able to check types": function() {
         test.expects(123).to.be.a('number');

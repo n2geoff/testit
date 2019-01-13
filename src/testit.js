@@ -1,5 +1,5 @@
 /*! Test.it v 0.8.0 | MIT | https://github.com/n2geoff/testit */
-(function (root, factory) {
+;(function (root, factory) {
     "use strict";
     // support  browser & commonjs
     if (typeof module === "object" && module.exports) {
@@ -34,10 +34,8 @@
                     passed.push(`\n+OK ${name}`);
                 } catch (err) {
                     if (errors) {
-                        console.log('ERRORS: YES');
                         failed.push(`\n-ERR ${name} \n --- \n ${err.stack} \n ---`);
                     } else {
-                        console.log('ERRORS: NO');
                         failed.push(`\n-ERR ${name}`);
                     }
                 }
@@ -80,6 +78,9 @@
                             if(typeof val !== type) {
                                 throw new Error(`expected ${typeof val} to be an ${type}`);
                             }
+                        },
+                        "ok": () => {
+                            return test.expects(val).to.exist();
                         },
                         "like": (comp) => {
                             if(val != comp) {

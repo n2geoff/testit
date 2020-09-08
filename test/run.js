@@ -1,5 +1,6 @@
 var path = require("path");
 var fs = require("fs");
+var test = require("../dist/testit.umd.js");
 
 fs.readdir(__dirname, function(err, files) {
     if(err) {
@@ -16,9 +17,9 @@ fs.readdir(__dirname, function(err, files) {
 
         var me = fs.readFileSync(path.join(__dirname, file));
 
-        // eval maybe evil, but it is YOUR code, are you evil?
-        eval(me.toString()); // jshint ignore:line
+        // eval can be evil, but it is YOUR code, are you evil?
+        eval(me.toString());
 
-        test.run();
+        test.it(spec()).run();
     });
 });

@@ -5,20 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Test It Spec</title>
-    <script src="../src/testit.js"></script>
-    <script src="./index.spec.js"></script>
+    <script src="index.spec.js"></script>
+    <style>
+        #summary {font-size: 2rem; text-transform: uppercase;}
+    </style>
 </head>
 <body>
-    <script>
-        test.run(false, function(r) {
+    <div id="summary"></div>
+    <div id="errors"></div>
+    <script type="module">
+        import test from "../src/testit.js";
+
+        test.it(spec(test)).run(false, function(r) {
+            let errors = [];
+
             document.body.style.backgroundColor = (
                 r.fail.length ? "#ff9999" : "#99ff99"
             );
 
-            r.pass.forEach((p) => document.write(`<br>${p}`));
-            r.fail.forEach((f) => document.write(`<br><b>${f}</b>`));
+            r.pass.forEach((p) => errors.push(`<br>${p}`));
+            r.fail.forEach((f) => errors.push(`<br><b>${f}</b>`));
 
-            document.write(`<p>tests ${r.pass.length + r.fail.length} pass ${r.pass.length} fail ${r.fail.length}`);
+            document.querySelector('#errors').innerHTML = errors;
+            document.querySelector('#summary').innerHTML = `tests: ${r.pass.length + r.fail.length} pass: ${r.pass.length} fail: ${r.fail.length}`;
         });
     </script>
 </body>

@@ -7,9 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "build": "node_modules/.bin/gulp",
-    "lint": "node_modules/.bin/eslint src/testit.js",
-    "test": "node test/run.js"
+    "build": "npx gulp default",
+    "lint": "npx eslint src/testit.js",
+    "test": "npm run build && npm run lint && node test/run.js"
   },
   "devDependencies": {
     "eslint": "^7.8.1",

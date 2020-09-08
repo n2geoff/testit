@@ -10,9 +10,9 @@ This is probally not a *cure-all* testing solution, if you want something more r
 
 ### Features
 
-- Works in the Browser
-- Works with CommonJS (aka NodeJS)
-- *Barely* over a 100 lines
+- Designed for the Browser
+- Works with NodeJS
+- *Under* a 100 lines
 - Single File
 - No Dependicies
 - 2kb footprint (*before gzip*)

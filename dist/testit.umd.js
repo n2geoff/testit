@@ -4,9 +4,10 @@
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.umd = factory());
 }(this, (function () { 'use strict';
 
-/*! Test.it v 0.9.0 | MIT | https://github.com/n2geoff/testit */
+    /*! Test.it v1.0.0 | MIT | https://github.com/n2geoff/testit */
     const test = {
         "log": console.log, 
+        "version": "v1.0.0",
         "_tests": {},
         "run": function run(errors, next) {
             if(typeof errors !== "boolean") {
@@ -49,46 +50,14 @@
             this._tests = tests;
             return this;
         },
-        "expects": function expects(val) {
-            return {
-                "to": {
-                    "be": {
-                        "a": (type) => { return test.expects(val).to.be.an(type); },
-                        "an": (type) => {
-
-                            if(["array"].indexOf(type) !== -1) {
-                                if(val.constructor.name.toLowerCase() !== "array") {
-                                    throw new Error(`expected ${typeof val} to be an ${type}`);
-                                }
-
-                                return true;
-                            }
-
-                            if(typeof val !== type) {
-                                throw new Error(`expected ${typeof val} to be an ${type}`);
-                            }
-                        },
-                        "ok": () => { return test.expects(val).to.exist(); },
-                        "like": (comp) => {
-                            if(val != comp) {
-                                throw new Error(`expected ${val} == ${comp}`);
-                            }
-                        }
-                    },
-                    "equal": (comp) => {
-                        if(val !== comp) {
-                            throw new Error(`expected ${val} === ${comp}`);
-                        }
-                    },
-                    "exist": () => {
-                        if(!val) {
-                            throw new Error(`expected ${val} to be truthy`);
-                        }
-                    },
-                    "pass": () => { return true; },
-                    "fail": (msg) => { throw new Error(msg); }
+        "assert": (expression, msg) => {
+            try {
+                if(!expression) {
+                    throw new Error(msg || "Assertion Failed");
                 }
-            };
+            } catch (e) {
+                throw new Error(msg);
+            }
         }
     };
 

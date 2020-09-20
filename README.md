@@ -2,7 +2,7 @@
 
 > A minimalistic testing library
 
-**Test.it** is a small testing library for people that want to live in code, not in tests.  No over engineering here.  Inspired by the simplicity of libraries like [Tape](https://github.com/substack/tape),but the implementation ideas of things like [Expect](https://github.com/Automattic/expect.js) and [TinyTest](https://github.com/joewalnes/jstinytest)
+**Test.it** is a small client-side testing library for people that want to live in code, not in tests.  No over engineering here.  Inspired by the simplicity of libraries like [Jasmine](https://jasmine.github.io/), but implementation ideas based on [TinyTest](https://github.com/joewalnes/jstinytest)
 
 This is probally not a *cure-all* testing solution, if you want something more robust checkout [Jasmine](https://jasmine.github.io/), [Tape](https://github.com/substack/tape) or [Mocha](https://mochajs.org/) -- this is to...
 
@@ -11,13 +11,12 @@ This is probally not a *cure-all* testing solution, if you want something more r
 ### Features
 
 - Designed for the Browser
-- Works with NodeJS
 - *Under* a 100 lines
 - Single File
 - No Dependicies
 - 2kb footprint (*before gzip*)
 - Extend with custom reporters
-- Has an Expect-like style BDD assertions
+- Uses Simple Assert
 
 **No Bloat Here!**
 
@@ -29,12 +28,14 @@ This is probally not a *cure-all* testing solution, if you want something more r
 By default, you can run your tests like
 
 ```js
+import test from 'testit';
+
 test.it({
     'my passing test': function() {
-        test.expects().to.pass();
+        test.assert(true);
     },
     'my failing test': function() {
-        test.expects().to.fail('just wanted to fail fast');
+        test.assert(true === false, 'just wanted to fail fast');
     }
 }).run();
 ```
@@ -68,7 +69,7 @@ For Example...
 ```js
 test.it({
     'my passing test': function() {
-        test.pass();
+        test.assert(true);
     }
 }, function(results) {
     if (window.document && document.body) {
@@ -92,38 +93,27 @@ From this object you can easily find the number of tests ran `pass.length`, numb
 
 > REMEMBER: you can bypass error output too
 
-A sample test runner is provided for both **HTML** and **NODE** in the `test/` directory; `run.html` and `run.js` respectfully.
+A sample test runner is provided for the **BROWSER** in the `test/` directory; `index.html` and `runner.js` respectfully, with the spec in `index.spec.js`.
 
 ## Methods
 
 To stay minimal, `test.it` only has 3 core functions:
 - `it` to capture your tests
 - `run` to execute yours tests
-- and `expects` to write your assertions
+- and `assert` to write your assertions
 
-While you can use your own assertion library, the included `expects` provides the following methods for writing your tests:
-
-| Methods                           | Description                             |
-| --------------------------------- | --------------------------------------- |
-| `.expects(tests).to.exist()`      | truthy evalution `.exist` or `.be.ok()` |
-| `.expects().to.pass()`            | pass test                               |
-| `.expects().to.fail(message)`     | fails test with message                 |
-| `.expects(this).to.equal(that)`   | strictly equal evaluation using `===`   |
-| `.expects(this).to.be.like(that)` | loose evaluation using `==`             |
-| `.expects(123).to.be.a('number')` | check typeof value (`.a()` or `.an()`)  |
-
-> NOTE: wish `eval` was not so evil, `assert(expression, message)` would be ideal
+While you can use your own assertion library, the included `assert` evaluates an expression/condition tests:
 
 if you want to shorten test typing try
 
-    let expect = test.expects;
+    let assert = test.assert;
 
 putting that above your tests will allow you to write like
 
 ```js
 test.it({
     "my test should work": function() {
-        expect().to.pass();
+        assert(true);
     }
 });
 
@@ -131,8 +121,8 @@ test.it({
 
 ## TODO
 
-- write `not` expects, ie `expects(this).to.not.equal(this)`
 - provide sample test runner for CI environments
+- maybe spec files export results && runner identifies failure
 
 ## Support
 

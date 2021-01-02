@@ -1,6 +1,6 @@
 # Test.it
 
-> A minimalistic testing library
+> A minimalistic client-side testing library
 
 **Test.it** is a small client-side testing library for people that want to live in code, not in tests.  No over engineering here.  Inspired by the simplicity of libraries like [Jasmine](https://jasmine.github.io/), but implementation ideas based on [TinyTest](https://github.com/joewalnes/jstinytest)
 
@@ -134,4 +134,4 @@ Anyone is welcome to contribute, however, if you decide to get involved, please 
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) Geoff Doty

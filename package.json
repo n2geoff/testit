@@ -13,8 +13,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.16.0",
-    "live-server": "^1.2.1"
+    "eslint": "^8.20.0"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
-/*! Test.it v1.0.0 | MIT | https://github.com/n2geoff/testit */
+/*! Test.it v1.1.2 | MIT | https://github.com/n2geoff/testit */
 const test = {
     "log": console.log, // eslint-disable-line
-    "version": "v1.0.0",
+    "version": "v1.1.2",
     "_tests": {},
     "run": function run(errors, next) {
         // TODO: rewrite to allow a show errors flag (optional)

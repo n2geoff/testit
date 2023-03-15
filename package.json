@@ -13,7 +13,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^8.20.0"
+    "eslint": "^8.36.0"
   },
   "repository": {
     "type": "git",

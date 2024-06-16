@@ -1,7 +1,7 @@
-/*! Test.it v1.1.2 | MIT | https://github.com/n2geoff/testit */
+/*! Test.it v1.1.3 | MIT | https://github.com/n2geoff/testit */
 const test = {
-    "log": console.log, // eslint-disable-line
-    "version": "v1.1.2",
+    "log": console.log,
+    "version": "v1.1.3",
     "_tests": {},
     "run": function run(errors, next) {
         // TODO: rewrite to allow a show errors flag (optional)
@@ -54,7 +54,7 @@ const test = {
             if(!expression) {
                 throw new Error(msg || "Assertion Failed");
             }
-        } catch (e) {
+        } catch {
             throw new Error(msg);
         }
     }

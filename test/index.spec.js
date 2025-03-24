@@ -1,29 +1,29 @@
 import test from "../src/testit.js";
 
 export default test.it({
-    "'like' should do truthy evaluation via ==": function () {
+    "'like' should do truthy evaluation via =="() {
         test.assert(1 == "1");
         test.assert(1);
     },
-    "'equal' should do === evaluation exist": function () {
+    "'equal' should do === evaluation exist"() {
         test.assert(1 === 1);
         test.assert("hello" === "hello");
     },
-    "you should be able to 'pass' a test": function () {
+    "you should be able to 'pass' a test"() {
         test.assert(1);
     },
-    "you should be able to fail' a test too": function () {
+    "you should be able to fail' a test too"() {
         try {
             test.assert(0);
         } catch (e) {
             // correct
         }
     },
-    "you should be able to test if something 'exists'": function () {
+    "you should be able to test if something 'exists'"() {
         test.assert({});
         test.assert(typeof ({}) === "object");
     },
-    "should be able to check types": function () {
+    "should be able to check types"() {
 
         test.assert(Array.isArray([]));
         test.assert(typeof (123) === "number");

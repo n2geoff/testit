@@ -33,7 +33,7 @@ The `dist` includes the minified version of the source code.
 Run unit tests using this command:
 
 ```bash
-npm test
+npm run test
 ```
 
 ## Reporting a bug

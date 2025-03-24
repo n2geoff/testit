@@ -31,10 +31,10 @@ By default, you can run your tests like
 import test from 'testit';
 
 test.it({
-    'my passing test': function() {
+    'my passing test'() {
         test.assert(true);
     },
-    'my failing test': function() {
+    'my failing test'() {
         test.assert(true === false, 'just wanted to fail fast');
     }
 }).run();
@@ -68,10 +68,10 @@ For Example...
 
 ```js
 test.it({
-    'my passing test': function() {
+    'my passing test'() {
         test.assert(true);
     }
-}, function(results) {
+}, (results) => {
     if (window.document && document.body) {
         document.body.style.backgroundColor = (
             results.fail.length ? '#ff9999' : '#99ff99'
@@ -112,7 +112,7 @@ putting that above your tests will allow you to write like
 
 ```js
 test.it({
-    "my test should work": function() {
+    "my test should work"() {
         assert(true);
     }
 });

@@ -1,10 +1,10 @@
-/*! Test.it v1.1.3 | MIT | https://github.com/n2geoff/testit */
-const test = {
-    "log": console.log,
-    "version": "v1.1.3",
-    "_tests": {},
-    "run": function run(errors, next) {
-        // TODO: rewrite to allow a show errors flag (optional)
+/*! Test.it v1.2.0 | MIT | https://github.com/n2geoff/testit */
+export const test = {
+    log: console.log,
+    version: "v1.2.0",
+    _tests: {},
+    run(errors, next) {
+        // TODO: rewrite to allow show errors flag (optional)
         if(typeof errors !== "boolean") {
             next = errors;
             errors = true;
@@ -45,11 +45,11 @@ const test = {
             return failed.length ? false : true;
         }
     },
-    "it": function it(tests) {
+    it(tests) {
         this._tests = tests;
         return this;
     },
-    "assert": (expression, msg) => {
+    assert(expression, msg) {
         try {
             if(!expression) {
                 throw new Error(msg || "Assertion Failed");

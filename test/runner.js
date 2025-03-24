@@ -1,6 +1,6 @@
 import spec from "./index.spec.js";
 
-spec.run(false, function (r) {
+spec.run(false, (r) => {
     let errors = [];
 
     document.body.style.backgroundColor = (
